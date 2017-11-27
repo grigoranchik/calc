@@ -1,44 +1,17 @@
 <html ng-app="myApp">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title> запрос на курс валют</title>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-
-    <link rel="stylesheet" href="css/jquery.rollbar.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-    <script type="text/javascript" src="js/jquery.rollbar.min.js"></script>
-
+    <script src="kyrs_valut.js"></script>
 </head>
-
 <body>
 
-<div id="example" ng-controller="ignitionMsgCtrl">
-
-            <br/>
-
-            <input type="text" ng-model="newMessageText" />
-            <hr/>
-            <input type="text" ng-model="newMessageFrom" />
-            <button ng-click="onSendNewMessageClicked()">send</button>
-
-        </div>
-
-
-
-
-
-
-
-        <script src="kyrs_valut.js"></script>
-
-
+    <div id="example" ng-controller="valutCtrl">
+        <button ng-click="onGetValuteClicked()">send</button>
     </div>
-</div>
+
 </body>
-
-
 </html>
