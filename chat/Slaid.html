@@ -1,0 +1,52 @@
+<html ng-app="myApp"> 
+	<head>
+	<meta charset="utf-8" />
+	<title> Калькулятор_Сашецлка </title>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+<link rel="stylesheet" href="css/jquery.rollbar.css" />
+ <link rel="stylesheet" href="css/style.css" />
+ <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+ <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+ <script type="text/javascript" src="js/jquery.rollbar.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="example" ng-controller="ignitionMsgCtrl">
+
+	<div class="rollbar-path-vertical" style="z-index: 100; top: 20px; height: 300px;">
+	
+	<div class="rollbar-handle" style="height: 3000%; opacity: 1; top: 0px;">
+
+    <div ng-repeat="msg in allChatMessages">
+         {{msg.existingMessageFrom}}: {{msg.existingMessageText}}
+    </div>
+
+    <br/>
+
+    <input type="text" ng-model="newMessageText" />
+	<hr/>
+	<input type="text" ng-model="newMessageFrom" />
+    <button ng-click="onSendNewMessageClicked()">send</button>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<script src="app.js"></script>
+	
+	
+	</div>
+	</div>
+</body>
+
+
+</html>
