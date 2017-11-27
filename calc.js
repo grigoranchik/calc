@@ -10,8 +10,8 @@ angular.module("myApp",[]).controller("firstCtrl", function($scope){
 	};
 	
 	$scope.equals=function(){
-		if (this.Znak_memory=='+'){                                           
-				this.pastElement(parseFloat(this.Calk_memory_1) + parseFloat(this.Calk_memory_2) +"");  //вводим в экран значение вычислений			
+		if (this.Znak_memory=='+'){
+				this.pastElement(parseFloat(this.Calk_memory_1) + parseFloat(this.Calk_memory_2) +"");  //вводим в экран значение вычислений
 				this.Calk_memory_1=parseFloat(this.Calk_memory_1) + parseFloat(this.Calk_memory_2) +""; //сохраняем результат вычислений..
 			}
 			else
@@ -68,6 +68,10 @@ angular.module("myApp",[]).controller("firstCtrl", function($scope){
 			this.Calk_memory_1='';
 			this.Znak_memory='';
 	};
+
+	function fuckMe(){
+		alert('I was fucked..');
+	}
 	
 });
 
