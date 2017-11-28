@@ -1,47 +1,40 @@
 angular.module("myApp", []).controller('valutCtrl', ['$scope', '$http', function ($scope, $http) {
 
-    $scope.allChatMessages = [];
-    $scope.newMessageText = null;
-    $scope.newMessageFrom = null;
+    $scope.usdInPromise="";
+    $scope.inputTextUSD = null;
+    $scope.inputTextEUR = null;
+    $scope.inputTextUSD_EUR= "соотношение USD/EUR";
 
     $scope.onGetValuteClicked = function () {
+
+        //alert(typeof(parseFloat($scope.usdInPromise))+" "+ typeof(parseFloat($scope.usdInPromise)));
+        //$scope.inputTextEUR=
         getChatMessages();
+
     };
 
-    function getChatMessages() {
+    $scope.rekirovka= function(){
+        $(this).prependTo($(this).parent());
 
-        document;
-        window;
+
+
+
+        var tr1,tr2;
+
+        tr1= document.getElementsByTagName('tr')[1];
+        tr2= document.getElementsByTagName('tr')[2];
+        tr2=parentNode.insertBefore(tr[1],tr[2]);
+    };
+    function getChatMessages() {
 
         var promise = $http.get('https://api.fixer.io/latest');  //https://api.fixer.io/latest
         promise.then(function (response) {
 
-            var receivedData = response.data;
-            var receivedRates = receivedData.rates;
-
-            var eurToUsd = receivedRates.USD;
-            debugger;
+            $scope.inputTextUSD_EUR="1/"+ response.data.rates.USD;
+            $scope.usdInPromise=response.data.rates.USD;
+            $scope.inputTextEUR= (parseFloat($scope.inputTextUSD))*(parseFloat($scope.usdInPromise))+"";
+            //debugger;
         });
-
-        /*
-        $.getJSON(
-            // NB: using Open Exchange Rates here, but you can use any source!
-            'https://openexchangerates.org/api/latest.json?app_id=[YOUR APP ID]',
-            function(data) {
-                // Check money.js has finished loading:
-                if ( typeof fx !== "undefined" && fx.rates ) {
-                    fx.rates = data.rates;
-                    fx.base = data.base;
-                } else {
-                    // If not, apply to fxSetup global:
-                    var fxSetup = {
-                        rates : data.rates,
-                        base : data.base
-                    }
-                }
-            }
-        );
-        */
 
 
     }

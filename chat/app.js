@@ -2,7 +2,7 @@ angular.module("myApp",[]).controller('ignitionMsgCtrl', ['$scope', '$timeout', 
 
 	$scope.allChatMessages = [];
 	$scope.sound_switch= false;
-    $scope.newMessageText = null;
+    $scope.newMessageText = "hello";
 	$scope.newMessageFrom = null;
 	
 	$scope.existingMessageText;
