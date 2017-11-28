@@ -14,16 +14,23 @@ angular.module("myApp", []).controller('valutCtrl', ['$scope', '$http', function
     };
 
     $scope.rekirovka= function(){
-        $(this).prependTo($(this).parent());
 
-
-
-
+        /*
         var tr1,tr2;
 
-        tr1= document.getElementsByTagName('tr')[1];
-        tr2= document.getElementsByTagName('tr')[2];
-        tr2=parentNode.insertBefore(tr[1],tr[2]);
+        tr1= document.getElementsByTagName('a');
+        tr2= document.getElementsByTagName('b');
+        tr1=tr1.parentNode;
+        tr1.insertBefore(tr1,tr2);
+        */
+
+        var parent = document.getElementById("tds");
+        var tr2 = document.getElementById("tr2");
+        var tr3 = document.getElementById("tr3");
+
+
+        parent.insertBefore(tr3, tr2);
+
     };
     function getChatMessages() {
 

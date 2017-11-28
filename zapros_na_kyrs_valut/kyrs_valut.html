@@ -8,14 +8,15 @@
     <script src="kyrs_valut.js"></script>
 </head>
 <body ng-controller="valutCtrl">
-    <tr>USD/EUR</tr>
+    <div id="tds">
+    <tr id="tr1">USD/EUR</tr>
     <input type="text" ng-model="inputTextUSD_EUR"/>
     </br>
-    <tr>EUR</tr>
+    <tr id="tr2">EUR</tr>
     <input type="text" ng-model="inputTextUSD"/>
-    <tr>USD</tr>
+    <tr id="tr3">USD</tr>
     <input type="text" ng-model="inputTextEUR"/>
-
+    </div>
 
     <button ng-click="onGetValuteClicked()">Конвертнуть</button>
     <button ng-click="rekirovka()">метнуть</button>
