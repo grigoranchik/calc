@@ -1,20 +1,30 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
-$scope.varPastElem="hellboy";
 
-$scope.selectElemPastElem = function(value){
-    debugger;
-    $scope.varPastElem=value;
-};
+    $scope.selectedCurrencyByModel = null;
+    $scope.varPastElem = "hellboy";
 
+    $scope.$watch(function () {
+        return $scope.selectedCurrencyByModel;
+    }, function (newValue, oldValue) {
+        $scope.varPastElem = newValue;
+    });
 
+    $scope.selectElemPastElem = function () {
+        debugger;
+        //$scope.varPastElem = value;
+    };
 }]);
-
 
 myApp.directive('myPromiseDirective', function ($http, $q) {
 
     return {
+        restrict: 'A',
+        require: 'ngModel',
+        scope: {
+            model: '=ngModel'
+        },
         link: function (scope, element, attrs) {
 
             scope.getListOfCurrencies = function () {
@@ -34,14 +44,17 @@ myApp.directive('myPromiseDirective', function ($http, $q) {
             var getListPromise = scope.getListOfCurrencies();
             getListPromise.then(function (listOfCurr) {
 
-                //listOfCurr.push('LOH');
-
-                $(element).select2({
+                var selectElem = $(element);
+                selectElem.select2({
                     data: listOfCurr
                 });
 
-                //scope.global_var=document.listOfCurr;
-
+                selectElem.on('change', function () {
+                    var val = selectElem.val();
+                    scope.$apply(function () {
+                        scope.model = val;
+                    });
+                });
 
             });
         }
