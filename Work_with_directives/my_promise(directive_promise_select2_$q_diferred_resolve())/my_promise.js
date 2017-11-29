@@ -1,7 +1,12 @@
 var myApp = angular.module('myApp', []);
 
 myApp.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
+$scope.varPastElem="hellboy";
 
+$scope.selectElemPastElem = function(value){
+    debugger;
+    $scope.varPastElem=value;
+};
 
 
 }]);
@@ -29,9 +34,15 @@ myApp.directive('myPromiseDirective', function ($http, $q) {
             var getListPromise = scope.getListOfCurrencies();
             getListPromise.then(function (listOfCurr) {
 
+                //listOfCurr.push('LOH');
+
                 $(element).select2({
                     data: listOfCurr
                 });
+
+                //scope.global_var=document.listOfCurr;
+
+
             });
         }
     }

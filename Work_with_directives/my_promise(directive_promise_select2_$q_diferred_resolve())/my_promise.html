@@ -12,8 +12,8 @@
 
 <body ng-controller="mainCtrl">
 
-    <select my-promise-directive="">
-    </select>
+    <select my-promise-directive="" style="width: 4%" ng-change="selectElemPastElem(this.value)"></select>
+    <input type="text" ng-model="varPastElem"/>
 
 </body>
 
