@@ -11,10 +11,6 @@ myApp.controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
         $scope.varPastElem = newValue;
     });
 
-    $scope.selectElemPastElem = function () {
-        debugger;
-        //$scope.varPastElem = value;
-    };
 }]);
 
 myApp.directive('myPromiseDirective', function ($http, $q) {
