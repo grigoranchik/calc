@@ -6,17 +6,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
-    <script src="project.js"></script>
+    <script src="my_promise.js"></script>
 </head>
 
 
 <body ng-controller="mainCtrl">
 
-<select my-select2-directive="">
-    <option value="AL" ></option>
+    <select my-promise-directive="" ng-model="selectedCurrencyByModel_1" style="width: 4%"></select>
 
 
-</select>
+    <input type="text" ng-model="varPastElem"/>
+
+    -= {{selectedCurrencyByModel_1}} =-
+
+    -= {{selectedCurrencyByModel_2}} =-
 
 </body>
 
