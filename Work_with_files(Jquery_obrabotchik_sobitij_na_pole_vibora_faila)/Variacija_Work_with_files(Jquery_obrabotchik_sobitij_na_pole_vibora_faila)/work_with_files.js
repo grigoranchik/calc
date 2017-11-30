@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('mainCtrl', function(){
+myApp.controller('mainCtrl',['$http','$scope', function($http, $scope){
 
 
     var files; // переменная. будет содержать данные файлов
@@ -12,6 +12,32 @@ myApp.controller('mainCtrl', function(){
     });
 
 
+
+
+
+
+    $('.upload_files').on( 'click', function( event ){
+
+        // создадим объект данных формы
+        var data = new FormData();
+
+        // заполняем объект данных файлами в подходящем для отправки формате
+        $.each( files, function( key, value ){
+            data.append( key, value );
+        });
+
+
+        var promise = $http.post('http://176.36.229.152/ignition/rest/files/upload', data , {});
+        promise.then(function () {
+            alert('файл успешно отправлен');
+        });
+
+
+
+    });
+
+
+/*
     // обработка и отправка AJAX запроса при клике на кнопку upload_files
     $('.upload_files').on( 'click', function( event ){
 
@@ -71,7 +97,7 @@ myApp.controller('mainCtrl', function(){
 
     });
 
+*/
 
 
-
-});
+}]);
