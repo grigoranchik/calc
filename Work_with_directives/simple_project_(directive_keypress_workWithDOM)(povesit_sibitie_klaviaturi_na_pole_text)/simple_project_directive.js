@@ -1,15 +1,9 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('mainCtrl','$scope', function($scope){
-    //$scope.text_remember="";
+myApp.controller('mainCtrl', function($scope){
+
 
     $scope.myOnSubmitHandler = function(){alert('ok')};//main function
-
-
-
-
-
-
 });
 
 
