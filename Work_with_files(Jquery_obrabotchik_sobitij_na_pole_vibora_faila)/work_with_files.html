@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Файлы: отправить/получить</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 
@@ -10,9 +10,10 @@
 </head>
 <body ng-controller="mainCtrl">
 
-    <input type="file" multiple="multiple" accept=".txt,js,image/*">
-    <a href="#" class="upload_files button">Загрузить файлы</a>
-    <div class="ajax-reply"></div>
+<input type="file" multiple="multiple" accept=".txt,js,image/*">
+<button type="button" class="upload_files">Отправить файлы</button>
+<button type="button" class="save_files">Скачать файлы</button>
+<div class="ajax-reply"></div>
 
 </body>
 </html>
