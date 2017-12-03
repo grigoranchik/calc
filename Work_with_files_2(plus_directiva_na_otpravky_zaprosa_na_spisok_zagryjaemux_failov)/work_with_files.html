@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Файлы: отправить/получить</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+    <script src="work_with_files.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+    <input type="file" multiple="multiple" accept=".txt,js,image/*">
+    <button type="button" class="upload_files">Отправить файлы</button>
+    <div class="ajax-reply"></div>
+
+    <my-select2-directive>
+        <table border="1" width="10%" cellpadding="5">
+            <tr>
+                <td>Имя файла</td>
+                <td>Дата создания</td>
+            </tr>
+            <tr ng-repeat="x in info" ng-model="info">
+                <td><a href="http://176.36.229.152:80/ignition/rest/files/download/{{ x }}">{{ x.availFileName }}</a></td>
+                <td>{{ x.availFileDateAddedMilliseconds }}</td>
+            </tr>
+
+
+        </table>
+    </my-select2-directive>
+
+</body>
+</html>

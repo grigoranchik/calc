@@ -4,7 +4,11 @@ myApp.directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
+            //console.log(attrs.fileModel);
+
             var model = $parse(attrs.fileModel);
+            //console.log(model);
+
             var modelSetter = model.assign;
 
             element.bind('change', function(){
@@ -38,10 +42,10 @@ myApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload)
     $scope.uploadFile = function(){
         var file = $scope.myFile;
 
-        console.log('file is ' );
+        console.log('file is ');
         console.dir(file);
 
-        var uploadUrl = "/fileUpload";
+        var uploadUrl = "http://176.36.229.152/ignition/rest/files/upload";
         fileUpload.uploadFileToUrl(file, uploadUrl);
     };
 }]);

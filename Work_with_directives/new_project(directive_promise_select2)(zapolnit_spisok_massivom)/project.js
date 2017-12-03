@@ -21,7 +21,7 @@ myApp.directive('mySelect2Directive', function ($http) {
                 promise.then(function (response) {
 
                     scope.info = response.data.rates;
-                    scope.info_1 = Object.keys(scope.info);
+                    scope.info_1 = Object.keys(scope.info);//возвращает массив из собственных перечисляемых свойств переданного объекта
 
                     $(element).select2({
                         data: scope.info_1
