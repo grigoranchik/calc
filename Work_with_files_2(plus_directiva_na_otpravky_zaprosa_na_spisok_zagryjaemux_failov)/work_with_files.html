@@ -24,6 +24,7 @@
             <tr ng-repeat="x in info" ng-model="info">
                 <td><a href="http://176.36.229.152:80/ignition/rest/files/download/{{x.availFileName}}">{{ x.availFileName }}</a></td>
                 <td>{{ x.availFileDateAddedMilliseconds | fileDateFilter }}</td>
+                <td><a href="http://176.36.229.152:80/ignition/rest/files/delete/{{x.availFileName}}">delete</a></td>
             </tr>
 
 

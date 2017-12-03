@@ -30,9 +30,29 @@ myApp.controller('mainCtrl',['$http', function($http){
 myApp
     .filter('fileDateFilter', function() {
         return function(input) {
-            return new Date(input).toString('dd.MM.yyyy HH:mm');;
+            var dt=new Date();
+            var month = dt.getMonth()+1;
+            if (month<10) month='0'+month;
+            var day = dt.getDate();
+            if (day<10) day='0'+day;
+            var year = dt.getFullYear();
+            //console.log(day+'.'+month+'.'+year);
+
+
+            if(new Date(input).toString('dd.MM.yyyy')==day+'.'+month+'.'+year)
+            {
+                return 'today';
+            }
+                else
+                    if(new Date(input).toString('dd.MM.yyyy')==parseInt(day.substring(1))+1+'.'+month+'.'+year)
+                    {
+                        return 'tomorrow';
+                    }
+                    else
+                        return new Date(input).toString('dd.MM.yyyy HH:mm');
         };
     });
+
 
 //директива на отправку запроса на список файлов, вывода их ввиде списка ссылок
 myApp.directive('mySelect2Directive', function ($http) {
