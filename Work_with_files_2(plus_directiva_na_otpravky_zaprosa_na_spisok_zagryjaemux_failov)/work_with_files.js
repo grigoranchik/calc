@@ -27,6 +27,12 @@ myApp.controller('mainCtrl',['$http', function($http){
 
 }]);
 
+myApp
+    .filter('fileDateFilter', function() {
+        return function(input) {
+            return new Date(input).toString('dd.MM.yyyy HH:mm');;
+        };
+    });
 
 //директива на отправку запроса на список файлов, вывода их ввиде списка ссылок
 myApp.directive('mySelect2Directive', function ($http) {
@@ -38,11 +44,9 @@ myApp.directive('mySelect2Directive', function ($http) {
                 var promise = $http.get('http://176.36.229.152:80/ignition/rest/files/list');
                 promise.then(function (response) {
                     scope.info = response.data.availableFilesList;
-                    //debugger;
-                    for(i=0;i<scope.info.length;i++){
-                        scope.info[i].availFileDateAddedMilliseconds=new Date(scope.info[i].availFileDateAddedMilliseconds).toString('dd.MM.yyyy HH:mm');//toLocaleString().format("DD.MM.YYYYTHH:mm")
-                    };
-                    //debugger;
+                    //for(i=0;i<scope.info.length;i++){
+                      //  scope.info[i].availFileDateAddedMilliseconds=new Date(scope.info[i].availFileDateAddedMilliseconds).toString('dd.MM.yyyy HH:mm');
+                    //};
                 }).catch(function(error) {
                     console.log(error.status);
                 });

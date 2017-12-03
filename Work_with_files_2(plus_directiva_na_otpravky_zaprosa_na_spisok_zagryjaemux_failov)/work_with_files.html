@@ -14,6 +14,7 @@
     <button type="button" class="upload_files">Отправить файлы</button>
     <div class="ajax-reply"></div>
 
+
     <my-select2-directive>
         <table border="1" width="23%" cellpadding="5">
             <tr>
@@ -22,7 +23,7 @@
             </tr>
             <tr ng-repeat="x in info" ng-model="info">
                 <td><a href="http://176.36.229.152:80/ignition/rest/files/download/{{x.availFileName}}">{{ x.availFileName }}</a></td>
-                <td>{{ x.availFileDateAddedMilliseconds }}</td>
+                <td>{{ x.availFileDateAddedMilliseconds | fileDateFilter }}</td>
             </tr>
 
 
