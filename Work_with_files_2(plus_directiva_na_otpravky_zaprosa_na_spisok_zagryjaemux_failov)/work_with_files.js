@@ -2,7 +2,6 @@ var myApp = angular.module('myApp',[]);
 
 myApp.controller('mainCtrl',['$http', function($http){
     var files;
-
     // заполняем переменную данными, при изменении значения поля file
     $('input[type=file]').on('change', function(){
         files = this.files;
@@ -24,11 +23,10 @@ myApp.controller('mainCtrl',['$http', function($http){
             console.log(error.status);
         });
     });
-
 }]);
 
-myApp
-    .filter('fileDateFilter', function() {
+//конвертирует дату с милисекунд и проверяет сегоднешняя она, вчерашняя или раньше..
+myApp.filter('fileDateFilter', function() {
         return function(input) {
             var dt=new Date();
             var month = dt.getMonth()+1;
@@ -37,8 +35,6 @@ myApp
             if (day<10) day='0'+day;
             var year = dt.getFullYear();
             //console.log(day+'.'+month+'.'+year);
-
-
             if(new Date(input).toString('dd.MM.yyyy')==day+'.'+month+'.'+year)
             {
                 return 'today';
@@ -71,6 +67,17 @@ myApp.directive('mySelect2Directive', function ($http) {
                     console.log(error.status);
                 });
             };
+
+            //отправить запрос на удаление файла
+            scope.setDelete = function(elem){
+                var promise = $http.post('http://176.36.229.152:80/ignition/rest/files/delete/'+elem,{},{});
+                promise.then(function (){
+
+                }).catch(function(error) {
+                    console.log(error.status);
+                });
+            };
+
             scope.getList();
         }
     }
