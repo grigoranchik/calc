@@ -39,6 +39,10 @@ myApp.directive('mySelect2Directive', function ($http) {
                 promise.then(function (response) {
                     scope.info = response.data.availableFilesList;
                     //debugger;
+                    for(i=0;i<scope.info.length;i++){
+                        scope.info[i].availFileDateAddedMilliseconds=new Date(scope.info[i].availFileDateAddedMilliseconds).toString('dd.MM.yyyy HH:mm');//toLocaleString().format("DD.MM.YYYYTHH:mm")
+                    };
+                    //debugger;
                 }).catch(function(error) {
                     console.log(error.status);
                 });
