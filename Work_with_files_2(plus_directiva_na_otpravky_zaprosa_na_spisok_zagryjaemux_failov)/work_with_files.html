@@ -16,19 +16,21 @@
 
 
     <my-select2-directive>
-        <table border="1" width="23%" cellpadding="5">
+        <table border="1" width="30%" cellpadding="5">
             <tr>
                 <td>Имя файла</td>
+                <td>Тип</td>
                 <td>Дата создания</td>
+                <td>Удалить</td>
             </tr>
             <tr ng-repeat="x in info" ng-model="info">
                 <td><a href="http://176.36.229.152:80/ignition/rest/files/download/{{x.availFileName}}">{{ x.availFileName }}</a></td>
+                <td><img src="{{x.availFileName | fileExtensionFilter }}"></td>
                 <td>{{ x.availFileDateAddedMilliseconds | fileDateFilter }}</td>
-                <td><a href="#" ng-click="setDelete(x.availFileName)">delete</a></td>
+                <td><a href="javascript:void(0)" ng-click="setDelete(x)">delete</a></td>
             </tr>
-
-
         </table>
+
     </my-select2-directive>
 
 </body>
