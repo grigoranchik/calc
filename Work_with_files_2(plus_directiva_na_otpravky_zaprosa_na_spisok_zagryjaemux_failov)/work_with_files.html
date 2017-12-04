@@ -7,6 +7,10 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
     <script src="work_with_files.js"></script>
+    <script src="fileDateFilter.js"></script>
+    <script src="fileExtensionFilter.js"></script>
+    <script src="mySelect2Directive.js"></script>
+    <script src="serviceForGetListOfFiles.js"></script>
     <script src="date.js"></script>
 </head>
 <body ng-controller="mainCtrl">
@@ -23,7 +27,7 @@
                 <td>Дата создания</td>
                 <td>Удалить</td>
             </tr>
-            <tr ng-repeat="x in info" ng-model="info">
+            <tr ng-repeat="x in availableFilesListObj.listOfFiles" ng-model="info">
                 <td><a href="http://176.36.229.152:80/ignition/rest/files/download/{{x.availFileName}}">{{ x.availFileName }}</a></td>
                 <td><img src="{{x.availFileName | fileExtensionFilter }}"></td>
                 <td>{{ x.availFileDateAddedMilliseconds | fileDateFilter }}</td>
