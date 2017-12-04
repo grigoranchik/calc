@@ -1,5 +1,6 @@
 /**
- *
+ * serviceForGetListOfFiles.getFilesListFromServer();
+ * serviceForGetListOfFiles.serviceForGetListObj.listOfFiles;
  */
 myApp.service('serviceForGetListOfFiles', ['$timeout', '$q', '$http', function ($timeout, $q, $http) {
 
