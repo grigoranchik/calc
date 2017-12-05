@@ -2,7 +2,7 @@
 /**
  *
  */
-myApp.directive('mySelect2Directive', ['$http', 'serviceForGetListOfFiles', function ($http, serviceForGetListOfFiles) {
+myApp.directive('myDeleteFileDirective', ['$http', 'serviceForGetListOfFiles', function ($http, serviceForGetListOfFiles) {
     return {
         link: function (scope, element, attrs) {
 
