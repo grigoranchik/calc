@@ -17,13 +17,10 @@ myApp.controller('mainCtrl', ['$http', '$scope', 'serviceForGetListOfFiles', fun
     //онклик на загрузку файл на сервер
     $('.upload_files').on('click', function (event) {
 
-        var quest = angular.element(document.querySelector(".hide"));
-        quest.css("display", "block");
-        /*
         $('.hide').css({
             'display': 'block'
         });
-        */
+
         var data = new FormData();
         data.append('file', files[0]);
         console.log(data);
