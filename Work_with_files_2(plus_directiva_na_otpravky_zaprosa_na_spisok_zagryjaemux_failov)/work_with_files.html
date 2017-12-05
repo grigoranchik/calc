@@ -14,6 +14,7 @@
     <link href="css_for_imgGif.css" rel="stylesheet">
     <script src="date.js"></script>
 </head>
+
 <body ng-controller="mainCtrl">
     <input type="file" multiple="multiple" accept=".txt,js,image/*">
     <button type="button" class="upload_files">Отправить файлы</button>
@@ -33,8 +34,11 @@
             <td>{{ x.availFileDateAddedMilliseconds | fileDateFilter }}</td>
             <td my-delete-file-directive=""><a href="javascript:void(0)" ng-click="setDelete(x)">delete</a></td>
         </tr>
-        <div class="hide"><img id="ajax_loader_img" src="icons/ajax_loader.gif"></div>
+
     </table>
 
+    <div class="hide_fuck" ng-if="isAjaxLoaderShown"><img src="icons/ajax_loader.gif"></div>
+
+<button ng-click="testClick()">
 </body>
 </html>
