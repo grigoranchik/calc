@@ -7,3 +7,16 @@
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
+
+.hide_fuck_Text_null {
+    text-align:  center;
+}
+
+table {
+    border: 1px solid green; /* Рамка вокруг таблицы */
+    margin: auto; /* Выравниваем таблицу по центру окна  */
+}
+
+#mainInput {
+    margin: auto;
+}
